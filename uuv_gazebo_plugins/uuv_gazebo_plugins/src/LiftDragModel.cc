@@ -218,13 +218,13 @@ ignition::math::Vector3d LiftDragTwoLines::compute(const ignition::math::Vector3
   }
 
   double alpha = angle + this->a0;
-
+   
   // Again, normalize to within +/-90 deg
   while (fabs(alpha) > 0.5 * M_PI)
   {
     alpha = alpha > 0 ? alpha - M_PI : alpha + M_PI;
   }
-
+  
   double u = velL.Length();
 
   // Compute dynamic pressure:
@@ -246,15 +246,25 @@ ignition::math::Vector3d LiftDragTwoLines::compute(const ignition::math::Vector3
     // stall
     double sumAlpha = alpha + this->alphaStall;
     cl = -this->cla * this->alphaStall +
-        this->cdaStall * sumAlpha;
-    cd = -this->cda * this->alphaStall +
-        this->cdaStall * sumAlpha;
+        this->claStall * sumAlpha;
+    cd = this->cda * this->alphaStall +
+        -this->cdaStall * sumAlpha;
   }
   else
   {
     // no stall
-    cd = this->cda * alpha;
-    cl = this->cla * alpha;
+    // angle of attack > -a0
+    if (alpha > 0)
+    {
+        cd = this->cda * alpha;
+        cl = this->cla * alpha;
+    }
+    // angle of attack <= -a0
+    else
+    {
+        cd = -this->cda * alpha;
+        cl = this->cla * alpha;
+    }
   }
 
   double lift = cl*q*this->area;
