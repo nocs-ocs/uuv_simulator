@@ -135,8 +135,13 @@ bool SphericalCoordinatesROSInterfacePlugin::TransformFromSphericalCoord(
   ignition::math::Vector3d cartVec =
     this->world->GetSphericalCoordinates()->LocalFromSpherical(scVec);
 #endif
-  _res.output.x = cartVec.X();
-  _res.output.y = cartVec.Y();
+  // The minus signs on X and Y come from the fact that
+  // Gazebo outputs the cartesian coordinates in the
+  // -E/-U/N format instead of E/N/U format
+  // The issue is mentioned in:
+  // https://github.com/uuvsimulator/uuv_simulator/issues/390 
+  _res.output.x = -cartVec.X();
+  _res.output.y = -cartVec.Y();
   _res.output.z = cartVec.Z();
   return true;
 }
