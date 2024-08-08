@@ -137,7 +137,7 @@ bool SphericalCoordinatesROSInterfacePlugin::TransformFromSphericalCoord(
 #endif
   // The minus signs on X and Y come from the fact that
   // Gazebo outputs the cartesian coordinates in the
-  // -E/-U/N format instead of E/N/U format
+  // -E/-N/U format instead of E/N/U format
   // The issue is mentioned in:
   // https://github.com/uuvsimulator/uuv_simulator/issues/390 
   _res.output.x = -cartVec.X();
