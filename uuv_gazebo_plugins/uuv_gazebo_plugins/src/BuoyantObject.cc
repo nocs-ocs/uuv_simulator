@@ -13,6 +13,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+// Update by Achille Martin (National Oceanography Centre) - 2021
+// Improved surface model by decomposing the system into sub buoyant systems
+
 #include <cmath>
 #include <list>
 

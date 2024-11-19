@@ -13,6 +13,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+// Update by Achille Martin (National Oceanography Centre) - 2024
+// Fixed TransformFromSpherical service by outputting the result in ENU format instead of -E -U N format from Gazebo
+
 /// \file SphericalCoordinatesROSInterfacePlugin.cc
 
 #include <uuv_world_ros_plugins/SphericalCoordinatesROSInterfacePlugin.hh>

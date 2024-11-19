@@ -13,6 +13,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+// Update by Achille Martin (National Oceanography Centre) - 2021
+// Updated lift drag two lines model
+
 #include <gazebo/gazebo.hh>
 
 #include <uuv_gazebo_plugins/LiftDragModel.hh>
