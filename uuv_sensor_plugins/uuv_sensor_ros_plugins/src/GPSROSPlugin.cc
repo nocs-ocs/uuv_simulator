@@ -13,6 +13,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+// Update by Achille Martin (National Oceanography Centre) - 2024
+// Removed minus sign from GPS ROS Plugin
+
 #include <uuv_sensor_ros_plugins/GPSROSPlugin.hh>
 
 namespace gazebo {
