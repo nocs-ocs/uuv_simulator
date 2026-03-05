@@ -13,6 +13,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+// Update by Neil Harrison (National Oceanography Centre) - 2026
+// Ensured compatibility for Ubuntu 18 - 24
+
 #include <gazebo/gazebo.hh>
 #include <uuv_gazebo_plugins/HydrodynamicModel.hh>
 
@@ -75,7 +78,12 @@ HydrodynamicModel::HydrodynamicModel(sdf::ElementPtr _sdf,
       double width = sdfModel->Get<double>("width");
       double length = sdfModel->Get<double>("length");
       double height = sdfModel->Get<double>("height");
+
+#if GAZEBO_MAJOR_VERSION >= 11
+      ignition::math::AxisAlignedBox boundingBox = ignition::math::AxisAlignedBox(
+#else
       ignition::math::Box boundingBox = ignition::math::Box(
+#endif
         ignition::math::Vector3d(-width / 2, -length / 2, -height / 2),
         ignition::math::Vector3d(width / 2, length / 2, height / 2));
       // Setting the the bounding box from the given dimensions

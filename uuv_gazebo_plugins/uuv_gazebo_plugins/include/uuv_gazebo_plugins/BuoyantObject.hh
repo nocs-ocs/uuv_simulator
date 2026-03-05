@@ -16,6 +16,9 @@
 /// \file BuoyantObject.hh
 /// \brief Description of a buoyant object
 
+// Update by Neil Harrison (National Oceanography Centre) - 2026
+// Ensured compatibility for Ubuntu 18 - 24
+
 #ifndef __UUV_GAZEBO_PLUGINS_BUOYANT_OBJECT_HH__
 #define __UUV_GAZEBO_PLUGINS_BUOYANT_OBJECT_HH__
 
@@ -74,7 +77,11 @@ class BuoyantObject
   public: double GetGravity();
 
   /// \brief Sets bounding box
+#if GAZEBO_MAJOR_VERSION >= 11
+  public: void SetBoundingBox(const ignition::math::AxisAlignedBox &_bBox);
+#else
   public: void SetBoundingBox(const ignition::math::Box &_bBox);
+#endif
 
   /// \brief Adds a field in the hydroWrench map
   public: void SetStoreVector(std::string _tag);
@@ -120,8 +127,11 @@ class BuoyantObject
 
   /// \brief TEMP for calculation of the buoyancy
   /// force close to the surface
+#if GAZEBO_MAJOR_VERSION >= 11
+  protected: ignition::math::AxisAlignedBox boundingBox;
+#else
   protected: ignition::math::Box boundingBox;
-
+#endif
   /// \brief Storage for hydrodynamic and hydrostatic forces and torques
   /// for debugging purposes
   protected: std::map<std::string, ignition::math::Vector3d> hydroWrench;

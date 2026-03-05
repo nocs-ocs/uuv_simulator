@@ -23,6 +23,9 @@
 // - be more consistent with other sensor plugins within uuv_simulator,
 // - adhere to Gazebo's coding standards.
 
+// Update by Neil Harrison (National Oceanography Centre) - 2026
+// Ensured compatibility for Ubuntu 18 - 24
+
 #include <uuv_sensor_ros_plugins/MagnetometerROSPlugin.hh>
 
 namespace gazebo
@@ -149,6 +152,7 @@ bool MagnetometerROSPlugin::OnUpdate(const common::UpdateInfo& _info)
   this->rosMsg.magnetic_field.z = this->measMagneticField.Z();
 
   this->rosSensorOutputPub.publish(this->rosMsg);
+  return true;
 }
 
 /////////////////////////////////////////////////

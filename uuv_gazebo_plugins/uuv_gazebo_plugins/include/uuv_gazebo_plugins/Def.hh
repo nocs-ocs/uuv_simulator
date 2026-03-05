@@ -16,6 +16,9 @@
 /// \file Def.hh
 /// \brief General definitions
 
+// Update by Neil Harrison (National Oceanography Centre) - 2026
+// Ensured compatibility for Ubuntu 18 - 24
+
 #ifndef __UUV_GAZEBO_PLUGINS_DEF_HH__
 #define __UUV_GAZEBO_PLUGINS_DEF_HH__
 
@@ -27,6 +30,7 @@
 
 #include <eigen3/Eigen/Core>
 #include <eigen3/Eigen/Geometry>
+#include <boost/scoped_ptr.hpp>
 
 /// \brief Tags to debugging topics that publish the forces separetely
 #define RESTORING_FORCE             "restoring_force"

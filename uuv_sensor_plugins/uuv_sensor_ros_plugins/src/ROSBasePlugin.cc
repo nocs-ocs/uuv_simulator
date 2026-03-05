@@ -13,6 +13,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+// Update by Neil Harrison (National Oceanography Centre) - 2026
+// Ensured compatibility for Ubuntu 18 - 24
+
 #include <uuv_sensor_ros_plugins/ROSBasePlugin.hh>
 
 namespace gazebo
@@ -141,6 +144,8 @@ bool ROSBasePlugin::InitBasePlugin(sdf::ElementPtr _sdf)
 
   // Add a default Gaussian noise model
   this->AddNoiseModel("default", this->noiseSigma);
+
+  return true;
 }
 
 /////////////////////////////////////////////////

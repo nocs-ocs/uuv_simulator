@@ -13,6 +13,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+// Update by Neil Harrison (National Oceanography Centre) - 2026
+// Ensured compatibility for Ubuntu 18 - 24
+
 #include <uuv_sensor_ros_plugins/ROSBaseModelPlugin.hh>
 
 namespace gazebo
@@ -95,9 +98,10 @@ bool ROSBaseModelPlugin::OnUpdate(const common::UpdateInfo&)
 void ROSBaseModelPlugin::SendLocalNEDTransform()
 {
   geometry_msgs::TransformStamped msg;
-  this->tfLocalNEDFrame.stamp_ = ros::Time::now();
-  tf::transformStampedTFToMsg(this->tfLocalNEDFrame, msg);
-  this->tfBroadcaster->sendTransform(msg);  
+  // NED transform not used
+  // this->tfLocalNEDFrame.stamp_ = ros::Time::now();
+  // tf::transformStampedTFToMsg(this->tfLocalNEDFrame, msg);
+  // this->tfBroadcaster->sendTransform(msg);
 }
 
 }

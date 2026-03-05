@@ -13,6 +13,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+// Update by Neil Harrison (National Oceanography Centre) - 2026
+// Ensured compatibility for Ubuntu 18 - 24
+
 #include <uuv_gazebo_ros_plugins/UnderwaterObjectROSPlugin.hh>
 
 #include <gazebo/physics/Base.hh>
@@ -204,8 +207,9 @@ void UnderwaterObjectROSPlugin::Update(const gazebo::common::UpdateInfo &_info)
 {
   UnderwaterObjectPlugin::Update(_info);
 
-  this->nedTransform.header.stamp = ros::Time::now();
-  this->tfBroadcaster.sendTransform(this->nedTransform);
+  // NED transform not used
+  // this->nedTransform.header.stamp = ros::Time::now();
+  // this->tfBroadcaster.sendTransform(this->nedTransform);
 }
 
 /////////////////////////////////////////////////
