@@ -27,6 +27,7 @@
 
 #include <eigen3/Eigen/Core>
 #include <eigen3/Eigen/Geometry>
+#include <boost/scoped_ptr.hpp>
 
 /// \brief Tags to debugging topics that publish the forces separetely
 #define RESTORING_FORCE             "restoring_force"

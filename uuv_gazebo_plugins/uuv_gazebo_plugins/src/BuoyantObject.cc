@@ -310,9 +310,15 @@ void BuoyantObject::ApplyBuoyancyForce()
 }
 
 /////////////////////////////////////////////////
+#if GAZEBO_MAJOR_VERSION >= 11
+void BuoyantObject::SetBoundingBox(const ignition::math::AxisAlignedBox &_bBox)
+{
+  this->boundingBox = ignition::math::AxisAlignedBox(_bBox);
+#else
 void BuoyantObject::SetBoundingBox(const ignition::math::Box &_bBox)
 {
   this->boundingBox = ignition::math::Box(_bBox);
+#endif
 
   gzmsg << "New bounding box for " << this->link->GetName() << "::"
     << this->boundingBox << std::endl;

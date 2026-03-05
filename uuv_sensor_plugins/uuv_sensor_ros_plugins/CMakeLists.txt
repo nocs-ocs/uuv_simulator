@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(uuv_sensor_ros_plugins)
 
-add_definitions(-std=c++11)
+add_definitions(-std=c++17)
 
 # set(CMAKE_BUILD_TYPE RelWithDebInfo)
 
@@ -19,7 +19,8 @@ find_package(catkin REQUIRED COMPONENTS
   message_filters
   tf2_ros
   tf2
-  laser_geometry)
+  laser_geometry
+  cv_bridge)
 
 find_package(Eigen3 REQUIRED)
 find_package(OGRE REQUIRED)
@@ -80,6 +81,7 @@ catkin_package(
     tf2
     image_transport
     laser_geometry
+    cv_bridge
 )
 
 ###########

@@ -95,9 +95,10 @@ bool ROSBaseModelPlugin::OnUpdate(const common::UpdateInfo&)
 void ROSBaseModelPlugin::SendLocalNEDTransform()
 {
   geometry_msgs::TransformStamped msg;
-  this->tfLocalNEDFrame.stamp_ = ros::Time::now();
-  tf::transformStampedTFToMsg(this->tfLocalNEDFrame, msg);
-  this->tfBroadcaster->sendTransform(msg);  
+  // NED transform not used
+  // this->tfLocalNEDFrame.stamp_ = ros::Time::now();
+  // tf::transformStampedTFToMsg(this->tfLocalNEDFrame, msg);
+  // this->tfBroadcaster->sendTransform(msg);
 }
 
 }
