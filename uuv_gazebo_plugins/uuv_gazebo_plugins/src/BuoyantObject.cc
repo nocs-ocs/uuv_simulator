@@ -16,6 +16,9 @@
 // Update by Achille Martin (National Oceanography Centre) - 2021
 // Improved surface model by decomposing the system into sub buoyant systems
 
+// Update by Neil Harrison (National Oceanography Centre) - 2026
+// Ensured compatibility for Ubuntu 18 - 24
+
 #include <cmath>
 #include <list>
 

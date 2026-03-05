@@ -13,6 +13,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+// Update by Neil Harrison (National Oceanography Centre) - 2026
+// Ensured compatibility for Ubuntu 18 - 24
+
 #include <gazebo/gazebo.hh>
 #include <uuv_gazebo_plugins/HydrodynamicModel.hh>
 

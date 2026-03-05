@@ -16,6 +16,9 @@
 /// \file BuoyantObject.hh
 /// \brief Description of a buoyant object
 
+// Update by Neil Harrison (National Oceanography Centre) - 2026
+// Ensured compatibility for Ubuntu 18 - 24
+
 #ifndef __UUV_GAZEBO_PLUGINS_BUOYANT_OBJECT_HH__
 #define __UUV_GAZEBO_PLUGINS_BUOYANT_OBJECT_HH__
 

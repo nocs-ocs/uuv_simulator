@@ -31,6 +31,9 @@
  *
  */
 
+// Update by Neil Harrison (National Oceanography Centre) - 2026
+// Ensured compatibility for Ubuntu 18 - 24
+
 #include <algorithm>
 #include <assert.h>
 #include <boost/thread/thread.hpp>

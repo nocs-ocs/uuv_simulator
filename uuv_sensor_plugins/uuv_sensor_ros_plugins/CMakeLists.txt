@@ -1,7 +1,18 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(uuv_sensor_ros_plugins)
 
-add_definitions(-std=c++17)
+# Update by Neil Harrison (National Oceanography Centre) - 2026
+# Ensured compatibility for Ubuntu 18 - 24
+
+## Check the compiler supports C++17
+include(CheckCXXCompilerFlag)
+check_cxx_compiler_flag(-std=c++17 COMPILER_SUPPORTS_CXX17)
+if(COMPILER_SUPPORTS_CXX17)
+  add_compile_options(-std=c++17)
+else()
+  ## Otherwise compile as C++11
+  add_compile_options(-std=c++11)
+endif()
 
 # set(CMAKE_BUILD_TYPE RelWithDebInfo)
 
